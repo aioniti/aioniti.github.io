@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aioniti.github.io/sitemap.xml

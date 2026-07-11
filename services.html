@@ -1,43 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!DOCTYPE html>
-    <html lang='en'>
-    <head>
-      <meta charset='UTF-8'>
-      <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-      <title>AIONITI Technologies</title>
-      <link rel='stylesheet' href='style.css'>
-    </head>
-    <body>
-      
-<div class="sidebar">
-  <div class="logo">
-    <img src="assets/logo.jpg" alt="AIONITI Technologies" style="width:200px;display:block;margin:0 auto 20px auto;">
-  </div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="strategy.html">Strategy</a>
-    <a href="careers.html">Careers</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</div>
+  <title>IT Services — Software, Cloud, ERP &amp; Cyber Security | AIONITI Technologies</title>
+  <meta name="description" content="Explore AIONITI Technologies' core IT services: custom software development, cloud migration on AWS/Azure/GCP, ERP implementation, and 24/7 cyber security protection.">
 
-      <main>
-        
-    <section>
-      <h2>Our Services</h2>
-      <ul>
-        <li><strong>Software Development:</strong> Desktop and web apps using modern frameworks.</li>
-        <li><strong>Cloud Services:</strong> AWS, Azure, and GCP migration and DevOps automation.</li>
-        <li><strong>ERP Implementation:</strong> SAP, Zoho, Microsoft Dynamics custom modules.</li>
-        <li><strong>Cyber Security:</strong> Audits, testing, and 24/7 protection.</li>
-      </ul>
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://aioniti.github.io/services.html">
+  <meta property="og:title"       content="IT Services — Software, Cloud, ERP &amp; Cyber Security | AIONITI Technologies">
+  <meta property="og:description" content="End-to-end IT services from AIONITI Technologies: software development, cloud, ERP, and cyber security.">
+  <meta property="og:image"       content="https://aioniti.github.io/assets/logo.jpg">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://aioniti.github.io/services.html">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- JSON-LD: ItemList of Services -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "AIONITI Technologies Services",
+    "url": "https://aioniti.github.io/services.html",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Service",
+          "name": "Software Development",
+          "description": "Custom desktop and web application development using modern frameworks.",
+          "provider": { "@type": "Organization", "name": "AIONITI Technologies" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Service",
+          "name": "Cloud Services",
+          "description": "AWS, Azure, and GCP cloud migration and DevOps automation.",
+          "provider": { "@type": "Organization", "name": "AIONITI Technologies" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Service",
+          "name": "ERP Implementation",
+          "description": "SAP, Zoho, and Microsoft Dynamics ERP deployments with custom modules.",
+          "provider": { "@type": "Organization", "name": "AIONITI Technologies" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "Service",
+          "name": "Cyber Security",
+          "description": "Security audits, penetration testing, and 24/7 threat monitoring.",
+          "provider": { "@type": "Organization", "name": "AIONITI Technologies" }
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===== Header / Nav ===== -->
+  <header>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo-tr.png" alt="AIONITI Technologies logo">
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="strategy.html">Strategy</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Main ===== -->
+  <main>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <h1 class="fade-in">Our Services</h1>
+      <p class="fade-in fade-in-delay-1">End-to-end technology services engineered to accelerate growth, reduce risk, and deliver lasting value.</p>
     </section>
-    
-        <footer><p>&copy; 2025 AIONITI Technologies | All Rights Reserved</p></footer>
-      </main>
-      <script src='script.js'></script>
-    </body>
-    </html>
-    
+
+    <!-- Service Cards -->
+    <div class="section">
+      <div class="card-grid-2">
+
+        <!-- Software Development -->
+        <article class="card fade-in fade-in-delay-1">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>Software Development</h3>
+          <p>We design and build robust desktop and web applications using modern frameworks such as React, Angular, Node.js, and .NET. From MVPs to enterprise platforms, we deliver scalable, maintainable code aligned to your specifications.</p>
+        </article>
+
+        <!-- Cloud Services -->
+        <article class="card fade-in fade-in-delay-2">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+          </div>
+          <h3>Cloud Services</h3>
+          <p>Our cloud engineers manage end-to-end migrations to AWS, Microsoft Azure, and Google Cloud Platform. We pair migrations with CI/CD pipeline setup, infrastructure-as-code, and ongoing DevOps support to keep your workloads optimized.</p>
+        </article>
+
+        <!-- ERP Implementation -->
+        <article class="card fade-in fade-in-delay-3">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>ERP Implementation</h3>
+          <p>We implement and customize SAP, Zoho, and Microsoft Dynamics ERP systems. Our consultants handle requirements gathering, module configuration, data migration, user training, and post-go-live support to ensure a smooth transition.</p>
+        </article>
+
+        <!-- Cyber Security -->
+        <article class="card fade-in fade-in-delay-4">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Cyber Security</h3>
+          <p>Protect your business with comprehensive security audits, penetration testing, and vulnerability assessments. Our 24/7 monitoring and incident response capabilities keep your critical data and infrastructure safe around the clock.</p>
+        </article>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="footer-inner">
+      <p>&copy; 2025 AIONITI Technologies. All Rights Reserved.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="strategy.html">Strategy</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
