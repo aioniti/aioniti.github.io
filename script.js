@@ -22,4 +22,12 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
+
+  // Inject shared footer
+  const footerPlaceholder = document.getElementById('site-footer');
+  if (footerPlaceholder) {
+    fetch('footer.html')
+      .then(function (res) { return res.text(); })
+      .then(function (html) { footerPlaceholder.outerHTML = html; });
+  }
 });
