@@ -1,181 +1,642 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AiONiTi Technologies Profile</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: bright white bands lit by the logo's spectrum arcs (purple → red → orange → amber → green), framed by midnight bands for the hero, delivery and contact. Services read as a periodic table. Single deliberate look. */
+:root {
+  --bg: #ffffff;
+  --soft: #f5f6fb;
+  --line: #e2e5f0;
+  --ink: #101a3d;
+  --mute: #5b6488;
+  --night: #0b1230;
+  --night-2: #131c47;
+  --night-line: #26316a;
+  --night-ink: #f2f4fb;
+  --night-mute: #a3acd2;
+  --orange: #f47a20;
+  --green: #13a06f;
+  --blue: #1653a8;
+  --purple: #7a3f9e;
+  --red: #ee4433;
+  --amber: #ffa81e;
+  --on-accent: #ffffff;
+  --spectrum: linear-gradient(90deg, #7a3f9e 0%, #ee4433 28%, #f47a20 52%, #ffa81e 74%, #13a06f 100%);
+  --display: "Unbounded", "Segoe UI", system-ui, sans-serif;
+  --body: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+  --wrap: 1180px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: var(--wrap); margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+@media (min-width: 720px) { .wrap { padding-left: max(32px, env(safe-area-inset-left, 0px)); padding-right: max(32px, env(safe-area-inset-right, 0px)); } }
+.i { color: var(--orange); }
+.mono { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.12; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+h2 { font-size: clamp(28px, 4.2vw, 46px); }
+h3 { font-size: 18px; font-weight: 500; }
+p { margin: 0; }
+.spectrum-text { background: var(--spectrum); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
-  <title>AIONITI Technologies — Scalable IT Solutions &amp; Digital Transformation</title>
-  <meta name="description" content="AIONITI Technologies delivers end-to-end IT solutions: software development, cloud migration, ERP implementation, and cyber security services to accelerate your digital transformation.">
+/* nav */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--bg) 85%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--display); font-weight: 700; font-size: 17px; letter-spacing: .02em; }
+.brand img { height: 34px; width: auto; flex: none; }
+.brand small { font-family: var(--body); font-weight: 600; font-size: 13px; color: var(--mute); letter-spacing: .04em; }
+.nav-links { display: flex; gap: 26px; }
+.nav-links a { text-decoration: none; font-size: 14px; color: var(--mute); transition: color .2s; }
+.nav-links a:hover { color: var(--ink); }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 14px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; font-family: var(--body); transition: border-color .2s, background .2s, color .2s; }
+.btn:hover { border-color: var(--orange); }
+.btn.primary { background: var(--orange); color: var(--on-accent); border-color: var(--orange); }
+.btn.primary:hover { background: var(--red); border-color: var(--red); }
+.btn.sm { padding: 8px 16px; }
+@media (max-width: 860px) { .nav-links { display: none; } .brand small { display: none; } }
 
-  <!-- Open Graph -->
-  <meta property="og:type"        content="website">
-  <meta property="og:url"         content="https://aioniti.github.io/">
-  <meta property="og:title"       content="AIONITI Technologies — Scalable IT Solutions &amp; Digital Transformation">
-  <meta property="og:description" content="Empowering businesses with scalable, secure, and high-performance IT solutions. Partner with AIONITI to build the future.">
-  <meta property="og:image"       content="https://aioniti.github.io/assets/logo.jpg">
+/* hero (midnight band) */
+.hero { position: relative; overflow: hidden; background: var(--night); color: var(--night-ink); }
+.hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(var(--night-line) 1px, transparent 1px); background-size: 28px 28px; mask-image: radial-gradient(ellipse 80% 70% at 70% 40%, #000 30%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse 80% 70% at 70% 40%, #000 30%, transparent 75%); }
+.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--spectrum); }
+.hero .wrap { position: relative; display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; padding-block: 72px 64px; }
+.hero-copy { min-width: 0; display: grid; gap: 26px; }
+.hero .mono { color: var(--night-mute); }
+.tag { display: inline-flex; align-items: center; gap: 10px; width: fit-content; padding: 6px 14px; border: 1px solid var(--night-line); border-radius: 999px; background: var(--night-2); }
+.tag .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 10px var(--amber); }
+.tag .mono { color: var(--night-ink); }
+.hero h1 { font-size: clamp(44px, 8vw, 96px); font-weight: 800; letter-spacing: -.035em; line-height: 1; padding-bottom: .04em; }
+.lockup { display: flex; align-items: center; gap: clamp(14px, 2.4vw, 26px); }
+.lockup img { height: clamp(84px, 11vw, 140px); width: auto; flex: none; padding: 10px; background: #ffffff; border-radius: 22px; box-shadow: 0 0 0 1px var(--night-line), 0 10px 40px -10px rgba(244, 122, 32, .5); }
+.lockup h1 { min-width: 0; font-size: clamp(40px, 6.4vw, 80px); }
+.hero h1 small { display: block; font-size: .26em; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; color: var(--night-mute); margin-top: 18px; -webkit-text-fill-color: var(--night-mute); }
+.lede { font-size: clamp(18px, 2vw, 21px); max-width: 34ch; font-weight: 500; }
+.lede em { font-style: normal; color: var(--amber); }
+.hero-sub { color: var(--night-mute); max-width: 58ch; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero .btn:not(.primary) { color: var(--night-ink); border-color: var(--night-line); }
+.hero .btn:not(.primary):hover { border-color: var(--amber); }
+.orbit-box { position: relative; width: 100%; max-width: 560px; aspect-ratio: 1; justify-self: center; }
+.orbit-box canvas { width: 100%; height: 100%; display: block; }
+.orbit-caption { position: absolute; left: 0; right: 0; bottom: 3%; text-align: center; }
+@media (max-width: 900px) { .hero .wrap { grid-template-columns: 1fr; padding-block: 48px 40px; } .orbit-box { max-width: 420px; } }
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://aioniti.github.io/">
+/* readout */
+.readout { border-bottom: 1px solid var(--line); background: var(--bg); }
+.readout .wrap { display: grid; grid-template-columns: repeat(5, 1fr); }
+.metric { padding: 26px 20px; border-left: 1px solid var(--line); display: grid; gap: 4px; }
+.metric:first-child { border-left: 0; padding-left: 0; }
+.metric b { font-family: var(--display); font-size: 36px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.1; color: var(--c); }
+.metric span { font-size: 13px; color: var(--mute); line-height: 1.4; }
+@media (max-width: 900px) { .readout .wrap { grid-template-columns: repeat(2, 1fr); } .metric, .metric:first-child { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); } .metric:nth-child(-n+2) { border-top: 0; } .metric:last-child { grid-column: 1 / -1; } }
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+/* sections */
+section.band { padding-block: 96px; border-bottom: 1px solid var(--line); }
+section.band.alt { background: var(--soft); }
+section.band.dark { background: var(--night); color: var(--night-ink); border-bottom: 0; }
+section.band.dark .mono, section.band.dark .sec-head p, section.band.dark .seq p { color: var(--night-mute); }
+.sec-head { display: grid; grid-template-columns: 220px 1fr; gap: 32px; margin-bottom: 56px; align-items: start; }
+.sec-head .mono { padding-top: 10px; border-top: 2px solid transparent; border-image: var(--spectrum) 1; }
+.sec-head > div { min-width: 0; display: grid; gap: 18px; }
+.sec-head p { color: var(--mute); max-width: 64ch; font-size: 17px; }
+@media (max-width: 760px) { section.band { padding-block: 64px; } .sec-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px; } }
 
-  <link rel="stylesheet" href="style.css">
+/* about */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.about-grid p { color: var(--mute); font-size: 17px; }
+.about-grid p strong { color: var(--ink); font-weight: 600; }
+.lifecycle { margin-top: 48px; display: flex; flex-wrap: wrap; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.lifecycle span { flex: 1 1 140px; padding: 16px 18px; font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; border-right: 1px solid var(--line); background: var(--soft); }
+.lifecycle span:last-child { border-right: 0; }
+.lifecycle span::before { content: "→ "; color: var(--orange); }
+@media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; gap: 20px; } }
 
-  <!-- JSON-LD: Organization -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "AIONITI Technologies",
-    "url": "https://aioniti.github.io/",
-    "logo": "https://aioniti.github.io/assets/logo.jpg",
-    "description": "AIONITI Technologies delivers end-to-end digital solutions including software development, cloud services, ERP implementation, and cyber security.",
-    "sameAs": []
-  }
-  </script>
-</head>
-<body>
+/* vision / mission / values */
+.vmv { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.vm-card { padding: 34px; border: 1px solid var(--line); border-radius: 18px; background: var(--bg); display: grid; gap: 16px; align-content: start; }
+.vm-card p { font-family: var(--display); font-weight: 400; font-size: clamp(19px, 2.2vw, 24px); line-height: 1.4; }
+.vm-card.vision { background: var(--night); color: var(--night-ink); border-color: var(--night); }
+.values { grid-column: 1 / -1; display: grid; grid-template-columns: 200px 1fr; gap: 24px; padding: 28px 34px; border: 1px solid var(--line); border-radius: 18px; align-items: center; background: var(--bg); }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip { padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line); font-size: 14px; font-weight: 600; background: var(--bg); }
+.chip.hot { border-color: var(--orange); color: var(--orange); }
+@media (max-width: 760px) { .vmv { grid-template-columns: 1fr; } .values { grid-template-columns: 1fr; padding: 24px; } .vm-card { padding: 24px; } }
 
-  <!-- ===== Header / Nav ===== -->
-  <header>
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <img src="assets/logo-tr.png" alt="AIONITI Technologies logo">
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="strategy.html">Strategy</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+/* periodic table */
+.ptable { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.el { --c: var(--orange); position: relative; padding: 22px; border: 1px solid var(--line); border-radius: 14px; background: var(--bg); display: grid; gap: 14px; align-content: start; min-width: 0; transition: border-color .25s, transform .25s, box-shadow .25s; }
+.el:hover { border-color: var(--c); transform: translateY(-3px); box-shadow: 0 18px 40px -22px color-mix(in srgb, var(--c) 70%, transparent); }
+.el-top { display: flex; justify-content: space-between; align-items: baseline; }
+.el-num { font-family: var(--mono); font-size: 13px; color: var(--mute); font-variant-numeric: tabular-nums; }
+.el-cls { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--c); }
+.el-sym { font-family: var(--display); font-size: 52px; font-weight: 700; line-height: 1; letter-spacing: -.03em; color: var(--c); }
+.el h3 { font-size: 16px; font-weight: 600; }
+.el p { font-size: 14px; color: var(--mute); line-height: 1.55; }
+.el ul { margin: 0; padding: 14px 0 0; list-style: none; border-top: 1px dashed var(--line); display: grid; gap: 7px; }
+.el li { font-size: 13.5px; line-height: 1.45; padding-left: 16px; position: relative; }
+.el li::before { content: ""; position: absolute; left: 0; top: .55em; width: 6px; height: 6px; border-radius: 50%; border: 1.5px solid var(--c); }
+.el.key { background: color-mix(in srgb, var(--c) 8%, var(--bg)); border-color: var(--c); }
+.key-flag { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; background: var(--c); color: var(--on-accent); padding: 3px 8px; border-radius: 4px; width: fit-content; }
+.c-or { --c: var(--orange); } .c-gr { --c: var(--green); } .c-bl { --c: var(--blue); } .c-pu { --c: var(--purple); } .c-rd { --c: var(--red); } .c-am { --c: #d98200; }
+@media (max-width: 1040px) { .ptable { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .ptable { grid-template-columns: 1fr; } }
 
-  <!-- ===== Main ===== -->
-  <main>
+/* specialized */
+.spec { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+.spec-card { grid-column: span 2; padding: 26px; border: 1px solid var(--line); border-radius: 14px; background: var(--bg); display: grid; gap: 12px; align-content: start; min-width: 0; }
+.spec-card:nth-child(4), .spec-card:nth-child(5) { grid-column: span 3; }
+.spec-card .row { display: flex; align-items: center; gap: 14px; }
+.spec-card .sym { width: 46px; height: 46px; flex: none; display: grid; place-items: center; border-radius: 10px; font-family: var(--display); font-weight: 700; color: var(--on-accent); background: var(--c); font-size: 17px; }
+.spec-card p { color: var(--mute); font-size: 15px; }
+@media (max-width: 900px) { .spec { grid-template-columns: 1fr 1fr; } .spec-card, .spec-card:nth-child(4) { grid-column: span 1; } .spec-card:nth-child(5) { grid-column: 1 / -1; } }
+@media (max-width: 560px) { .spec { grid-template-columns: 1fr; } .spec-card:nth-child(5) { grid-column: auto; } }
 
-    <!-- Hero -->
-    <section class="hero">
-      <h1 class="fade-in">Empowering Businesses with Scalable, Secure &amp; High-Performance IT Solutions</h1>
-      <p class="fade-in fade-in-delay-1">Your Vision, Our Technology — Together We Build the Future.</p>
-      <a href="services.html" class="btn fade-in fade-in-delay-2">Explore Services</a>
-    </section>
+/* platforms */
+.stack { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.stack div { background: var(--bg); padding: 22px 20px; display: grid; gap: 6px; transition: background .2s; }
+.stack div:hover { background: var(--soft); }
+.stack b { font-family: var(--display); font-weight: 500; font-size: 15px; }
+.stack span { font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); }
 
-    <!-- What We Do -->
-    <div class="section">
-      <div class="section-title fade-in">
-        <h2>What We Do</h2>
-        <p>Comprehensive technology services designed to accelerate your digital transformation journey.</p>
+/* delivery sequence (dark band) */
+.seq { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); counter-reset: s; }
+.seq li { --c: var(--orange); padding: 0 18px 0 0; display: grid; gap: 12px; align-content: start; min-width: 0; counter-increment: s; }
+.seq .node { display: flex; align-items: center; }
+.seq .node::before { content: counter(s, decimal-leading-zero); width: 46px; height: 46px; flex: none; display: grid; place-items: center; border-radius: 50%; border: 1.5px solid var(--c); color: var(--c); font-family: var(--mono); font-size: 13px; background: var(--night); box-shadow: 0 0 22px -4px var(--c); }
+.seq .node::after { content: ""; flex: 1; height: 1px; background: var(--night-line); margin-left: 6px; }
+.seq li:last-child .node::after { background: none; }
+.seq h3 { font-size: 17px; font-weight: 600; }
+.seq p { font-size: 14px; line-height: 1.55; }
+@media (max-width: 1000px) { .seq { grid-template-columns: repeat(3, 1fr); row-gap: 40px; } .seq li:nth-child(3) .node::after { background: none; } }
+@media (max-width: 600px) {
+  .seq { grid-template-columns: 1fr; row-gap: 0; }
+  .seq li { grid-template-columns: 46px 1fr; column-gap: 18px; padding: 0 0 28px; position: relative; }
+  .seq li .node { grid-row: span 2; align-self: start; }
+  .seq .node::after { display: none; }
+  .seq li:not(:last-child)::after { content: ""; position: absolute; left: 23px; top: 52px; bottom: 4px; width: 1px; background: var(--night-line); }
+}
+
+/* advantage */
+.adv { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.adv-col { border: 1px solid var(--line); border-radius: 18px; padding: 32px; background: var(--bg); display: grid; gap: 20px; align-content: start; min-width: 0; }
+.adv-col ul { list-style: none; margin: 0; padding: 0; display: grid; }
+.adv-col li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; padding: 14px 0; border-top: 1px solid var(--line); font-size: 15.5px; }
+.adv-col li:first-child { border-top: 0; padding-top: 0; }
+.adv-col li svg { width: 18px; height: 18px; margin-top: 4px; }
+.engage { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.engage div { border: 1px dashed var(--line); border-radius: 14px; padding: 20px; display: grid; gap: 6px; background: var(--soft); }
+.engage b { font-family: var(--display); font-weight: 500; font-size: 15px; }
+.engage span { font-size: 13.5px; color: var(--mute); }
+@media (max-width: 860px) { .adv { grid-template-columns: 1fr; } .engage { grid-template-columns: 1fr 1fr; } .adv-col { padding: 24px; } }
+@media (max-width: 480px) { .engage { grid-template-columns: 1fr; } }
+
+/* industries */
+.ind { display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; align-items: start; }
+.ind > div { min-width: 0; display: grid; gap: 22px; }
+.ind p { color: var(--mute); font-size: 17px; }
+.seg { display: grid; gap: 10px; }
+.seg div { display: flex; justify-content: space-between; gap: 16px; padding: 14px 18px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); font-weight: 600; }
+.seg div span { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; color: var(--mute); font-weight: 400; text-transform: uppercase; align-self: center; text-align: right; }
+.sectors { display: flex; flex-wrap: wrap; gap: 10px; }
+@media (max-width: 860px) { .ind { grid-template-columns: 1fr; gap: 32px; } }
+
+/* contact */
+.contact { position: relative; overflow: hidden; padding-block: 110px; background: var(--night); color: var(--night-ink); }
+.contact::before { content: ""; position: absolute; left: 50%; top: 50%; width: 900px; height: 900px; transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none; background: radial-gradient(circle, rgba(244, 122, 32, .22) 0%, rgba(122, 63, 158, .10) 35%, rgba(11, 18, 48, 0) 62%); }
+.contact .wrap { position: relative; display: grid; gap: 28px; justify-items: center; text-align: center; }
+.contact .logo-big { height: 120px; width: auto; }
+.contact h2 { font-size: clamp(32px, 5.5vw, 64px); max-width: 16ch; }
+.contact p { color: var(--night-mute); max-width: 54ch; font-size: 17px; }
+.contact-card { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.addr { display: inline-flex; align-items: center; gap: 12px; padding: 10px 10px 10px 20px; border: 1px solid var(--night-line); border-radius: 999px; background: var(--night-2); max-width: 100%; }
+.addr code { font-family: var(--mono); font-size: 15px; color: var(--night-ink); user-select: all; overflow-wrap: anywhere; }
+.contact .btn:not(.primary) { color: var(--night-ink); border-color: var(--night-line); }
+.addr.phone { padding: 10px 20px; }
+.addr.phone .mono { color: var(--amber); font-size: 11px; }
+.copy-note { min-height: 1.4em; font-family: var(--mono); font-size: 12px; color: var(--amber); }
+footer { background: var(--night); color: var(--night-mute); border-top: 1px solid var(--night-line); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding-block: 24px; align-items: center; }
+footer .brand { color: var(--night-ink); }
+footer .mono { color: var(--night-mute); }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .el, .btn, .stack div { transition: none; } .el:hover { transform: none; } }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="tick" viewBox="0 0 18 18">
+      <circle cx="9" cy="9" r="8" fill="none" stroke="#f47a20" stroke-opacity=".35"/>
+      <path d="M5.2 9.4 7.8 12l5-5.6" fill="none" stroke="#f47a20" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="AiONiTi Technologies, back to top">
+      <img src="aioniti-logo.png" alt="">
+      <span>A<span class="i">i</span>ON<span class="i">i</span>T<span class="i">i</span> <small>Technologies Pvt. Ltd.</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#platforms">Platforms</a>
+      <a href="#delivery">Delivery</a>
+      <a href="#why">Why AiONiTi</a>
+    </nav>
+    <a class="btn sm primary" href="#contact">Contact us</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="tag"><span class="dot"></span><span class="mono">Corporate Company Profile</span></span>
+        <div class="lockup"><img src="aioniti-logo.png" alt="AiONiTi logo"><h1><span class="spectrum-text">AiONiTi</span><small>Technologies Pvt. Ltd.</small></h1></div>
+        <p class="lede">Your <em>visionary technology solution partner</em>, from first line of code to fully optimized production.</p>
+        <p class="hero-sub">A full-spectrum technology company delivering software engineering, web development, cloud transformation, database services, ERP, DevOps, infrastructure consulting, performance optimization, open-source support, IT project execution and cybersecurity.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#services">Explore capabilities</a>
+          <a class="btn" href="#contact">Start a conversation</a>
+        </div>
       </div>
-      <div class="card-grid">
-        <div class="card fade-in fade-in-delay-1">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <h3>Software Development</h3>
-          <p>Custom desktop and web applications built with modern frameworks, tailored to your business processes.</p>
+      <div class="orbit-box">
+        <canvas id="orbit" aria-label="Orbital diagram: eight core service lines circling the AiONiTi logo" role="img"></canvas>
+        <div class="orbit-caption mono">Eight service lines · One accountable core</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="readout" aria-label="Capability at a glance">
+    <div class="wrap">
+      <div class="metric" style="--c:var(--purple)"><b>08</b><span>Core service lines</span></div>
+      <div class="metric" style="--c:var(--red)"><b>05</b><span>Specialized practices</span></div>
+      <div class="metric" style="--c:var(--orange)"><b>11</b><span>Enterprise platforms supported</span></div>
+      <div class="metric" style="--c:#d98200"><b>04</b><span>Flexible engagement models</span></div>
+      <div class="metric" style="--c:var(--green)"><b>06</b><span>Stage delivery lifecycle</span></div>
+    </div>
+  </div>
+
+  <section class="band" id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono">About AiONiTi</span>
+        <div><h2>Built to modernize operations and accelerate digital transformation.</h2></div>
+      </div>
+      <div class="about-grid">
+        <p>AiONiTi Technologies Pvt. Ltd. is a <strong>customer-focused IT solutions company</strong> that helps businesses modernize operations, improve system performance, strengthen infrastructure and move faster on digital transformation. We combine deep technical expertise with practical business understanding, and we aim to be a <strong>long-term technology partner</strong> for organizations that want reliable execution, scalable architecture, secure systems and measurable outcomes.</p>
+        <p>We work across complex, sophisticated environments and support customers through the <strong>full technology lifecycle</strong>. Whether the need is a custom business application, a cloud migration, a database performance problem, an ERP rollout or a cybersecurity initiative, AiONiTi brings a <strong>solution-driven, accountable</strong> approach to delivery.</p>
+      </div>
+      <div class="lifecycle" aria-label="Full technology lifecycle">
+        <span>Consulting</span><span>Architecture</span><span>Development</span><span>Migration</span><span>Implementation</span><span>Optimization</span><span>Managed support</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono">Vision · Mission · Values</span>
+        <div><h2>What we stand for.</h2></div>
+      </div>
+      <div class="vmv">
+        <div class="vm-card vision">
+          <span class="mono" style="color:var(--amber)">Vision</span>
+          <p>To be a trusted global partner for businesses seeking innovative, reliable and future-ready IT solutions.</p>
         </div>
-        <div class="card fade-in fade-in-delay-2">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-          </div>
-          <h3>Cloud Services</h3>
-          <p>AWS, Azure, and GCP migrations with DevOps automation to scale infrastructure reliably and cost-effectively.</p>
+        <div class="vm-card">
+          <span class="mono" style="color:var(--orange)">Mission</span>
+          <p>To deliver prompt support and build innovative, reliable, flexible and scalable technology products and services through continuously improved methods and strong customer focus.</p>
         </div>
-        <div class="card fade-in fade-in-delay-3">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <div class="values">
+          <span class="mono">Core values</span>
+          <div class="chips">
+            <span class="chip hot">Customer Oriented</span>
+            <span class="chip">Innovative &amp; Result Driven</span>
+            <span class="chip">Flexibility &amp; Adaptability</span>
+            <span class="chip hot">Elite Raving Fan Culture</span>
+            <span class="chip">Constructive Communication</span>
+            <span class="chip">Professionalism</span>
+            <span class="chip">Teamwork</span>
           </div>
-          <h3>ERP Implementation</h3>
-          <p>SAP, Zoho, and Microsoft Dynamics deployments with custom modules to unify your business operations.</p>
-        </div>
-        <div class="card fade-in fade-in-delay-4">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3>Cyber Security</h3>
-          <p>Comprehensive audits, penetration testing, and 24/7 threat monitoring to protect your critical assets.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- About Teaser -->
-    <div class="section" style="padding-top:0;">
-      <div class="about-teaser fade-in">
+  <section class="band" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono">Core service portfolio</span>
         <div>
-          <h2>Built on Trust. Driven by Innovation.</h2>
-          <p>AIONITI Technologies is a full-spectrum IT solutions provider. We partner with organizations of every size to design, build, and manage technology that drives measurable business outcomes.</p>
-          <p>From startups to enterprises, our cross-functional teams bring deep expertise and a client-first mindset to every engagement.</p>
-          <a href="about.html" class="btn-outline">Learn More About Us</a>
+          <h2>The periodic table of AiONiTi capability.</h2>
+          <p>Eight core service lines that combine into whatever your business needs. Each one can stand alone as a project, or bond with the others into a complete transformation program.</p>
         </div>
-        <div class="about-teaser-visual" aria-hidden="true">AIONITI</div>
+      </div>
+      <div class="ptable">
+        <article class="el c-pu">
+          <div class="el-top"><span class="el-num">01</span><span class="el-cls">Engineering</span></div>
+          <div class="el-sym">Sd</div>
+          <h3>Software Development</h3>
+          <p>Custom, business-focused software built with modern practices and scalable architecture.</p>
+          <ul><li>Custom desktop &amp; web applications</li><li>Business workflow automation</li><li>Website &amp; portal development</li><li>Modernization of existing code</li><li>Maintenance, enhancement &amp; support</li></ul>
+        </article>
+        <article class="el c-rd">
+          <div class="el-top"><span class="el-num">02</span><span class="el-cls">Engineering</span></div>
+          <div class="el-sym">Wd</div>
+          <h3>Website Design &amp; Development</h3>
+          <p>Corporate websites and digital platforms that pair professional design with usability and performance.</p>
+          <ul><li>Corporate websites &amp; business portals</li><li>CMS &amp; content-driven sites</li><li>Responsive design, UX/UI improvement</li><li>SEO-friendly structure &amp; speed</li></ul>
+        </article>
+        <article class="el c-or">
+          <div class="el-top"><span class="el-num">03</span><span class="el-cls">Cloud</span></div>
+          <div class="el-sym">Cl</div>
+          <h3>Cloud Services</h3>
+          <p>Secure, scalable and cost-conscious adoption and management of cloud environments.</p>
+          <ul><li>Cloud migration planning &amp; execution</li><li>Cloud-native deployment</li><li>Managed hosting &amp; infra support</li><li>DevOps &amp; Infrastructure as Code</li><li>Performance &amp; cost optimization</li></ul>
+        </article>
+        <article class="el c-am">
+          <div class="el-top"><span class="el-num">04</span><span class="el-cls">Cloud</span></div>
+          <div class="el-sym">Pm</div>
+          <h3>Platform Migration</h3>
+          <p>Moving from legacy and proprietary environments to modern platforms with minimal disruption.</p>
+          <ul><li>Legacy system modernization</li><li>On-premises to cloud</li><li>Cross-platform (Windows / Linux)</li><li>Email, infra &amp; application platforms</li><li>Data migration &amp; cutover</li></ul>
+        </article>
+        <article class="el c-bl">
+          <div class="el-top"><span class="el-num">05</span><span class="el-cls">Infrastructure</span></div>
+          <div class="el-sym">Ci</div>
+          <h3>Consulting &amp; Infrastructure</h3>
+          <p>Advisory and infrastructure work that improves resilience, scalability and operational control.</p>
+          <ul><li>IT strategy consulting</li><li>Infrastructure design &amp; upgrades</li><li>Network architecture &amp; security</li><li>Data center modernization</li><li>IaC &amp; operational standards</li></ul>
+        </article>
+        <article class="el c-pu">
+          <div class="el-top"><span class="el-num">06</span><span class="el-cls">Infrastructure</span></div>
+          <div class="el-sym">Pt</div>
+          <h3>Performance Tuning</h3>
+          <p>Finding and removing bottlenecks across applications, databases, ERP and infrastructure.</p>
+          <ul><li>Application performance optimization</li><li>Database query tuning</li><li>Load testing &amp; scalability planning</li><li>ERP / SAP performance tuning</li><li>Continuous monitoring</li></ul>
+        </article>
+        <article class="el c-gr key">
+          <div class="el-top"><span class="el-num">07</span><span class="el-cls">Data</span></div>
+          <div class="el-sym">Db</div>
+          <span class="key-flag">Key strength</span>
+          <h3>Database Services</h3>
+          <p>Cloud and on-premises databases run for performance, reliability, recoverability, security and cost.</p>
+          <ul><li>Design, implementation &amp; administration</li><li>Performance &amp; query optimization</li><li>HA / DR &amp; backup strategy</li><li>Backup &amp; restore optimization</li><li>Security &amp; encryption</li><li>Cloud cost optimization</li><li>Observability &amp; maintenance</li></ul>
+        </article>
+        <article class="el c-or">
+          <div class="el-top"><span class="el-num">08</span><span class="el-cls">Enterprise</span></div>
+          <div class="el-sym">Er</div>
+          <h3>ERP Solutions</h3>
+          <p>Consulting, implementation, migration and optimization for integrated business operations.</p>
+          <ul><li>ERP implementation &amp; rollout</li><li>Custom ERP module development</li><li>Migration, upgrade &amp; stabilization</li><li>CRM, HRMS, payroll &amp; supply chain integration</li></ul>
+        </article>
       </div>
     </div>
+  </section>
 
-    <!-- Testimonials -->
-    <!-- <section class="testimonials-band">
-      <div class="section-title fade-in">
-        <h2>What Our Clients Say</h2>
-        <p>Trusted by businesses across India to deliver technology that performs.</p>
+  <section class="band alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono">Specialized solutions</span>
+        <div>
+          <h2>Deep practices for critical systems.</h2>
+          <p>Focused expertise for the platforms and initiatives where the stakes are highest.</p>
+        </div>
       </div>
-      <div class="testimonial-grid">
-
-        <div class="testimonial-card fade-in fade-in-delay-1">
-          <blockquote>
-            "AIONITI handled our SAP migration end-to-end with zero downtime during go-live. Their consultants understood our manufacturing workflows and configured the modules exactly as we needed. Highly recommend them for any ERP project."
-          </blockquote>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar" aria-hidden="true">RS</div>
-            <div class="testimonial-meta">
-              <strong>Rakesh Sharma</strong>
-              <span>Head of IT — Bharat Precision Industries, Noida</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card fade-in fade-in-delay-2">
-          <blockquote>
-            "We were running on ageing on-premises servers and needed to move fast. AIONITI had us fully on AWS within six weeks, set up CI/CD pipelines, and cut our infrastructure costs by almost 40%. The team was responsive throughout."
-          </blockquote>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar" aria-hidden="true">PN</div>
-            <div class="testimonial-meta">
-              <strong>Priya Nair</strong>
-              <span>Co-Founder &amp; CTO — FinEdge Solutions, Gurugram</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card fade-in fade-in-delay-3">
-          <blockquote>
-            "After a minor security incident, we brought AIONITI in for a full audit. They identified gaps we hadn't considered and implemented 24/7 monitoring within the month. We now have complete confidence in our security posture."
-          </blockquote>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar" aria-hidden="true">AG</div>
-            <div class="testimonial-meta">
-              <strong>Amit Gupta</strong>
-              <span>Director of Operations — NovaTech Systems, New Delhi</span>
-            </div>
-          </div>
-        </div>
-
+      <div class="spec">
+        <div class="spec-card c-bl"><div class="row"><span class="sym">Sp</span><h3>SAP Services</h3></div><p>Consulting, support, implementation, migration, upgrades, performance tuning, backup and restore. We simplify business process management and raise productivity across departments.</p></div>
+        <div class="spec-card c-or"><div class="row"><span class="sym">Do</span><h3>DevOps</h3></div><p>Manual and automated DevOps practices that streamline delivery and operations: CI/CD, deployment automation, environment provisioning and operational readiness.</p></div>
+        <div class="spec-card c-gr"><div class="row"><span class="sym">Os</span><h3>Open Source</h3></div><p>Linux-based environments, open-source customization, migration away from proprietary systems, and server maintenance tailored to your requirements.</p></div>
+        <div class="spec-card c-pu"><div class="row"><span class="sym">Ip</span><h3>IT Projects</h3></div><p>Critical initiatives including acquisitions, platform migration, infrastructure upgrades, data-center transformation, cloud migration and cybersecurity programs.</p></div>
+        <div class="spec-card c-rd"><div class="row"><span class="sym">Cs</span><h3>Cybersecurity</h3></div><p>A stronger security posture through cyber awareness, vulnerability assessments, compliance support, penetration testing coordination, consulting and monitoring guidance.</p></div>
       </div>
-    </section> -->
+    </div>
+  </section>
 
-  </main>
+  <section class="band" id="platforms">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono">Platform expertise</span>
+        <div>
+          <h2>Fluent in the enterprise stack.</h2>
+          <p>From legacy enterprise systems to modern cloud-native environments, our engineers work hands-on across the platforms your business already runs.</p>
+        </div>
+      </div>
+      <div class="stack">
+        <div><span>Database</span><b>Oracle</b></div>
+        <div><span>ERP</span><b>Oracle E-Business Suite</b></div>
+        <div><span>Middleware</span><b>WebLogic</b></div>
+        <div><span>Reporting</span><b>BI Publisher</b></div>
+        <div><span>Performance mgmt</span><b>Hyperion</b></div>
+        <div><span>ERP</span><b>SAP</b></div>
+        <div><span>Database</span><b>MS SQL Server</b></div>
+        <div><span>Database</span><b>PostgreSQL</b></div>
+        <div><span>Database</span><b>MySQL</b></div>
+        <div><span>Database</span><b>MariaDB</b></div>
+        <div><span>NoSQL</span><b>MongoDB</b></div>
+        <div><span>Operating systems</span><b>Linux &amp; Windows</b></div>
+      </div>
+    </div>
+  </section>
 
-  <!-- ===== Footer (injected from footer.html) ===== -->
-  <div id="site-footer"></div>
+  <section class="band dark" id="delivery">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono">Delivery approach</span>
+        <div>
+          <h2>Six stages from first conversation to steady state.</h2>
+          <p>A disciplined sequence that keeps every engagement tied to business goals, and keeps improving after go-live.</p>
+        </div>
+      </div>
+      <ol class="seq">
+        <li style="--c:#a76ad0"><div class="node"></div><h3>Understand</h3><p>Business goals, the existing environment and the pain points.</p></li>
+        <li style="--c:var(--red)"><div class="node"></div><h3>Assess</h3><p>Current systems, risks, performance and opportunities.</p></li>
+        <li style="--c:var(--orange)"><div class="node"></div><h3>Design</h3><p>Target solution, roadmap, architecture and support model.</p></li>
+        <li style="--c:var(--amber)"><div class="node"></div><h3>Implement</h3><p>Disciplined engineering and project execution.</p></li>
+        <li style="--c:#2fc58f"><div class="node"></div><h3>Validate</h3><p>Functionality, performance, security and business readiness.</p></li>
+        <li style="--c:#5b93e6"><div class="node"></div><h3>Support &amp; Optimize</h3><p>Continuous monitoring, tuning and managed services.</p></li>
+      </ol>
+    </div>
+  </section>
 
-  <script src="script.js"></script>
-</body>
-</html>
+  <section class="band" id="why">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono">Why AiONiTi</span>
+        <div><h2>One partner. Every layer of your technology.</h2></div>
+      </div>
+      <div class="adv">
+        <div class="adv-col">
+          <span class="mono" style="color:var(--orange)">Why customers choose us</span>
+          <ul>
+            <li><svg><use href="#tick"/></svg>One-stop partner for software, cloud, database, ERP, infrastructure and cybersecurity</li>
+            <li><svg><use href="#tick"/></svg>Consulting, engineering, migration, optimization and support in one team</li>
+            <li><svg><use href="#tick"/></svg>Equally at home in legacy enterprise systems and cloud-native environments</li>
+            <li><svg><use href="#tick"/></svg>Customer-first, practical, business-focused solution design</li>
+            <li><svg><use href="#tick"/></svg>Built for performance, security, scalability and long-term stability</li>
+          </ul>
+        </div>
+        <div class="adv-col">
+          <span class="mono" style="color:var(--green)">Our strategic advantage</span>
+          <ul>
+            <li><svg><use href="#tick"/></svg>Comprehensive service portfolio under one roof</li>
+            <li><svg><use href="#tick"/></svg>Deep database and enterprise platform expertise</li>
+            <li><svg><use href="#tick"/></svg>Capability across software, cloud, infrastructure, ERP and security</li>
+            <li><svg><use href="#tick"/></svg>Balanced consulting-plus-execution approach</li>
+            <li><svg><use href="#tick"/></svg>Designed for long-term support, optimization and partnership</li>
+          </ul>
+        </div>
+        <div class="engage">
+          <div><b>Project delivery</b><span>Fixed-scope builds, migrations and rollouts.</span></div>
+          <div><b>Managed services</b><span>Ongoing operation of your systems.</span></div>
+          <div><b>Consulting</b><span>Strategy, architecture and assessments.</span></div>
+          <div><b>Support retainers</b><span>Expert help on call when you need it.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt">
+    <div class="wrap ind">
+      <div>
+        <span class="mono">Industries &amp; customer segments</span>
+        <h2>Built for growing businesses and critical environments.</h2>
+        <p>AiONiTi supports organizations of every stage, including businesses running critical legacy or hybrid technology estates.</p>
+      </div>
+      <div>
+        <div class="seg">
+          <div>Small &amp; medium businesses<span>Scale-ready foundations</span></div>
+          <div>Mid-market enterprises<span>Modernization</span></div>
+          <div>Growing organizations<span>Elastic capacity</span></div>
+          <div>Legacy &amp; hybrid environments<span>Risk-managed change</span></div>
+        </div>
+        <div class="sectors">
+          <span class="chip">Manufacturing</span><span class="chip">Trading</span><span class="chip">Services</span><span class="chip">Distribution</span><span class="chip">Finance</span><span class="chip">Professional services</span><span class="chip">Technology-enabled business</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <img class="logo-big" src="aioniti-logo.png" alt="AiONiTi Technologies logo">
+      <h2>Let's build what comes next.</h2>
+      <p>Tell us about your application, migration, database, ERP or security challenge. We'll come back with a clear path forward.</p>
+      <div class="contact-card">
+        <span class="addr"><code id="email">sales@aioniti.com</code><button class="btn sm primary" id="copy" type="button">Copy email</button></span>
+        <span class="addr phone"><span class="mono">Call</span><code>+91 9810788928</code></span>
+        <a class="btn" href="https://aioniti.com" target="_blank" rel="noopener">aioniti.com ↗</a>
+      </div>
+      <div class="copy-note" id="copy-note" aria-live="polite"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="aioniti-logo.png" alt=""><span>A<span class="i">i</span>ON<span class="i">i</span>T<span class="i">i</span> Technologies Pvt. Ltd.</span></a>
+    <span class="mono">Visionary Technology Solution Partner</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy'), note = document.getElementById('copy-note'), email = document.getElementById('email');
+  btn.addEventListener('click', function () {
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(email);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      note.textContent = 'Email selected. Press Ctrl+C to copy.';
+    }
+    try { navigator.clipboard.writeText(email.textContent).then(function () { note.textContent = 'Copied sales@aioniti.com'; }, fallback); }
+    catch (e) { fallback(); }
+  });
+
+  var cv = document.getElementById('orbit'); if (!cv) return;
+  var ctx = cv.getContext('2d');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var INK = '#f2f4fb', NIGHT = '#0b1230';
+  var logo = new Image(); logo.src = 'aioniti-logo.png';
+  var orbits = [
+    { r: .44, k: .34, rot: -0.35, speed: .00016, col: 'rgba(244,122,32,0.45)' },
+    { r: .36, k: .42, rot: 0.75, speed: -.00022, col: 'rgba(19,160,111,0.5)' },
+    { r: .27, k: .55, rot: 1.9, speed: .0003, col: 'rgba(122,63,158,0.6)' }
+  ];
+  var nodes = [
+    { s: 'Sd', o: 0, p: 0, c: '#a76ad0' }, { s: 'Wd', o: 0, p: 2.1, c: '#ee4433' }, { s: 'Cl', o: 0, p: 4.2, c: '#f47a20' },
+    { s: 'Pm', o: 1, p: .8, c: '#ffa81e' }, { s: 'Ci', o: 1, p: 3.0, c: '#5b93e6' }, { s: 'Pt', o: 1, p: 5.0, c: '#a76ad0' },
+    { s: 'Db', o: 2, p: 1.4, c: '#2fc58f' }, { s: 'Er', o: 2, p: 4.5, c: '#f47a20' }
+  ];
+  var W = 0, H = 0, sparks = [];
+  for (var i = 0; i < 70; i++) sparks.push({ a: Math.random() * Math.PI * 2, d: .1 + Math.random() * .4, z: Math.random(), v: (Math.random() - .5) * .0002 });
+  function size() {
+    var b = cv.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = b.width; H = b.height; cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function pos(o, t, R, cx, cy) {
+    var rx = o.r * R * 2, ry = rx * o.k, x = Math.cos(t) * rx, y = Math.sin(t) * ry, c = Math.cos(o.rot), s = Math.sin(o.rot);
+    return { x: cx + x * c - y * s, y: cy + x * s + y * c, depth: Math.sin(t) };
+  }
+  function draw(time) {
+    var R = Math.min(W, H) / 2, cx = W / 2, cy = H / 2 - R * .04;
+    ctx.clearRect(0, 0, W, H);
+    var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, R);
+    g.addColorStop(0, 'rgba(244,122,32,0.18)'); g.addColorStop(.5, 'rgba(122,63,158,0.07)'); g.addColorStop(1, 'rgba(11,18,48,0)');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.fill();
+    sparks.forEach(function (sp) {
+      var a = sp.a + time * sp.v;
+      ctx.fillStyle = 'rgba(242,244,251,' + (0.15 + sp.z * .45) + ')';
+      ctx.beginPath(); ctx.arc(cx + Math.cos(a) * sp.d * R * 2, cy + Math.sin(a) * sp.d * R * 1.6, .6 + sp.z * 1.1, 0, Math.PI * 2); ctx.fill();
+    });
+    orbits.forEach(function (o, idx) {
+      var rx = o.r * R * 2;
+      ctx.strokeStyle = o.col; ctx.lineWidth = 1.2; ctx.setLineDash(idx === 1 ? [3, 6] : []);
+      ctx.beginPath(); ctx.ellipse(cx, cy, rx, rx * o.k, o.rot, 0, Math.PI * 2); ctx.stroke();
+    });
+    ctx.setLineDash([]);
+    var pts = nodes.map(function (n) { var o = orbits[n.o]; var p = pos(o, n.p + time * o.speed, R, cx, cy); p.n = n; return p; });
+    function node(p) {
+      var sc = .82 + (p.depth + 1) * .16, r = Math.max(15, R * .085) * sc;
+      ctx.globalAlpha = .55 + (p.depth + 1) * .225;
+      ctx.strokeStyle = 'rgba(242,244,251,0.12)'; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(p.x, p.y); ctx.stroke();
+      var gg = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r * 2.2);
+      gg.addColorStop(0, p.n.c + '55'); gg.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = gg; ctx.beginPath(); ctx.arc(p.x, p.y, r * 2.2, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = NIGHT; ctx.strokeStyle = p.n.c; ctx.lineWidth = 1.6;
+      ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = INK; ctx.font = '700 ' + Math.round(r * .78) + 'px Unbounded, system-ui, sans-serif';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(p.n.s, p.x, p.y + 1);
+      ctx.globalAlpha = 1;
+    }
+    pts.filter(function (p) { return p.depth < 0; }).forEach(node);
+    var nr = R * .2;
+    var ng = ctx.createRadialGradient(cx, cy, 0, cx, cy, nr * 2);
+    ng.addColorStop(0, 'rgba(255,255,255,0.95)'); ng.addColorStop(.55, 'rgba(255,255,255,0.9)'); ng.addColorStop(.62, 'rgba(244,122,32,0.25)'); ng.addColorStop(1, 'rgba(244,122,32,0)');
+    ctx.fillStyle = ng; ctx.beginPath(); ctx.arc(cx, cy, nr * 2, 0, Math.PI * 2); ctx.fill();
+    var pulse = reduce ? 0 : (Math.sin(time * .002) + 1) / 2;
+    ctx.strokeStyle = 'rgba(255,168,30,' + (0.55 - pulse * .5) + ')'; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.arc(cx, cy, nr * (1.2 + pulse * .45), 0, Math.PI * 2); ctx.stroke();
+    if (logo.complete && logo.naturalWidth) {
+      var lh = nr * 1.65, lw = lh * logo.naturalWidth / logo.naturalHeight;
+      ctx.drawImage(logo, cx - lw / 2, cy - lh / 2, lw, lh);
+    }
+    pts.filter(function (p) { return p.depth >= 0; }).forEach(node);
+  }
+  size();
+  var t0 = performance.now();
+  function loop(now) { draw(now - t0 + 6000); requestAnimationFrame(loop); }
+  if (reduce) draw(6000); else requestAnimationFrame(loop);
+  logo.onload = function () { if (reduce) draw(6000); };
+  if ('ResizeObserver' in window) new ResizeObserver(function () { size(); if (reduce) draw(6000); }).observe(cv);
+})();
+</script>
